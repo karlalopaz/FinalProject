@@ -19,7 +19,7 @@ public class Hooks {
         return driver;
     }
 
-    public WalmartSite getWishSite()
+    public WalmartSite getWalmartSite()
     {
         return walmartSite;
     }

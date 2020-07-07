@@ -1,8 +1,13 @@
 package com.walmart.pages;
 
+import com.walmart.utils.Properties;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import static junit.framework.Assert.*;
+
 
 public class LandingPage extends BasePage
 {
@@ -12,7 +17,22 @@ public class LandingPage extends BasePage
         PageFactory.initElements(wd, this);
     }
 
+    @FindBy(css="header_logo__2cAck")
     WebElement walmartLogo;
-    WebElement searchBar;
+   @FindBy(id="scrollContainer")
+    WebElement initialProducts;
+
+    public void navigate()
+    {
+        driver.get(Properties.URL);
+    }
+
+   public void validateHomePage()
+   {
+       wait.until(ExpectedConditions.visibilityOf(walmartLogo));
+       assertTrue(walmartLogo.isDisplayed());
+       wait.until(ExpectedConditions.visibilityOf(initialProducts));
+       assertTrue(initialProducts.isDisplayed());
+   }
 
 }
