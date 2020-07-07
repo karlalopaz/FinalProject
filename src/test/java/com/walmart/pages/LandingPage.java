@@ -17,8 +17,8 @@ public class LandingPage extends BasePage
         PageFactory.initElements(wd, this);
     }
 
-    @FindBy(css="header_walmartLogo")
-    WebElement walmartLogo;
+    /*@FindBy(css="[class*=header_walmartLogo]")
+    WebElement walmartLogo;*/
    @FindBy(id="scrollContainer")
     WebElement initialProducts;
 
@@ -29,10 +29,11 @@ public class LandingPage extends BasePage
 
    public void validateHomePage()
    {
-     //  wait.until(ExpectedConditions.elementToBeSelected(walmartLogo));
-       assertTrue(walmartLogo.isDisplayed());
+       //wait.until(ExpectedConditions.visibilityOf(walmartLogo));
+       //assertTrue(walmartLogo.isDisplayed());
        wait.until(ExpectedConditions.visibilityOf(initialProducts));
        assertTrue(initialProducts.isDisplayed());
+       System.out.println("You are in walmart.com home page");
    }
 
 }

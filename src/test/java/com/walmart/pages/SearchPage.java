@@ -5,6 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
@@ -18,7 +19,7 @@ public class SearchPage extends BasePage
         PageFactory.initElements(wd, this);
     }
 
-    @FindBy(css="search-bar-desktop_searchBarContainer__eBcmI")
+    @FindBy(css="[class*=searchBarContainer] input")
     WebElement searchBar;
     @FindBy(css="search-icon")
     WebElement searchIcon;
@@ -33,10 +34,12 @@ public class SearchPage extends BasePage
 
     public void searchForProduct()
     {
-        assertTrue(searchBar.isEnabled());
-        assertTrue(searchIcon.isDisplayed());
+        //assertTrue(searchBar.isEnabled());
+        //assertTrue(searchIcon.isDisplayed());
+        wait.until(ExpectedConditions.elementToBeClickable(searchBar));
         searchBar.sendKeys("salsa");
-        searchIcon.click();
+        //wait.until(ExpectedConditions.elementToBeClickable(searchIcon));
+        //searchIcon.click();
     }
 
     public void validateSearchProductPage()
