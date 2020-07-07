@@ -1,6 +1,7 @@
 package com.walmart.pages;
 
 import com.walmart.utils.Producto;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -24,11 +25,19 @@ public class ProductPage extends BasePage
     @FindBy(css="[data-automation-id='add-button']")
     WebElement addToCart;
 
-    public void validarProducto(Producto primerProd)
-    {
-        wait.until(ExpectedConditions.visibilityOf(nombreProducto));
-        wait.until(ExpectedConditions.visibilityOf(marcaProducto));
-        wait.until(ExpectedConditions.visibilityOf(precioProducto));
+    public void validarProducto(Producto primerProd) throws Exception {
+        try
+        {
+            wait.until(ExpectedConditions.visibilityOf(nombreProducto));
+            wait.until(ExpectedConditions.visibilityOf(marcaProducto));
+            wait.until(ExpectedConditions.visibilityOf(precioProducto));
+        } catch (Exception e)
+        {
+            e.printStackTrace();
+            System.out.println("No cargo el producto");
+            throw new Exception("No cargo el producto");
+        }
+
         String prodName = nombreProducto.getText();
         String[] name= prodName.split(" ");
         String splitName = name[0];
@@ -61,6 +70,10 @@ public class ProductPage extends BasePage
 
     public void addToCart()
     {
+        wait.until(ExpectedConditions.elementToBeClickable(addToCart));
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].click();", addToCart);
         addToCart.click();
+        System.out.println("Producto agregado al carrito");
     }
 }

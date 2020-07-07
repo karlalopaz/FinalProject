@@ -13,11 +13,7 @@ import java.util.concurrent.TimeUnit;
 public class Hooks {
     public WebDriver driver;
     public WalmartSite walmartSite;
-
-    public WebDriver getDriver()
-    {
-        return driver;
-    }
+    public ChromeOptions options;
 
     public WalmartSite getWalmartSite()
     {
@@ -27,6 +23,9 @@ public class Hooks {
     @Before
     public void setUp()
     {
+        options = new ChromeOptions();
+        options.addArguments("--disable-notifications");
+        options.addArguments("--enable-javascript");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Properties.MID_WAIT, TimeUnit.SECONDS);
         walmartSite = new WalmartSite(driver);

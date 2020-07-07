@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import static junit.framework.Assert.assertTrue;
 
 import java.util.List;
 
@@ -35,9 +36,12 @@ public class SearchPage extends BasePage
     public void searchForProduct()
     {
         wait.until(ExpectedConditions.elementToBeClickable(searchBar));
-        searchBar.sendKeys("juegos");
+        assertTrue(searchBar.isEnabled());
+        searchBar.sendKeys("nintendo");
         wait.until(ExpectedConditions.elementToBeClickable(searchIcon));
+        assertTrue(searchIcon.isEnabled());
         searchIcon.click();
+        System.out.println("Buscando producto");
     }
 
     public void validateSearchProductList()
@@ -58,10 +62,13 @@ public class SearchPage extends BasePage
         String prodName = nombreProducto.getText();
         String[] name= prodName.split(" ");
         String splitName = name[0];
+        System.out.println("El nombre del producto es: "+splitName);
         String prodBrand = marcaProducto.getText();
+        System.out.println("La marca del producto es: "+prodBrand);
         String prodPrice = precioProducto.getText();
         prodPrice = prodPrice.replace("$", "");
         prodPrice = prodPrice.replace(",","");
+        System.out.println("El precio del producto es: "+prodPrice);
         double price = Double.parseDouble(prodPrice);
         this.p = new Producto(splitName, prodBrand, price);
         return this.p;
@@ -71,6 +78,7 @@ public class SearchPage extends BasePage
     {
         WebElement producto = productsList.get(numProduct - 1);
         producto.click();
+        System.out.println("Seleccionando el producto: "+numProduct);
     }
 
     public Producto getProducto() {

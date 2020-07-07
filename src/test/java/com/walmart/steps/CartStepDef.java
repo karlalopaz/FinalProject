@@ -16,8 +16,7 @@ public class CartStepDef {
     }
 
    @Given("I am in the Cart Page")
-    public void iAmInTheCartPage()
-    {
+    public void iAmInTheCartPage() throws Exception {
         walmartSite.getHome().navigate();
         walmartSite.getHome().validateHomePage();
         walmartSite.getSearch().searchForProduct();
@@ -34,6 +33,7 @@ public class CartStepDef {
     public void iSeeTheListOfProducts()
     {
         walmartSite.getCart().validateProductsDisplayedInCart();
+        System.out.println("Producto disponible en el carrito");
     }
 
 
@@ -41,5 +41,6 @@ public class CartStepDef {
     public void iCanDeleteTheProduct()
     {
         walmartSite.getCart().deleteProduct();
+        System.out.println("Producto borrado");
     }
 }
