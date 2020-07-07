@@ -49,7 +49,7 @@ public class SearchPage extends BasePage
         }
     }
 
-    public Producto capturaDatos(int i)
+    public Producto capturaDatos(int x)
     {
         String prodName = nombreProducto.getText();
         String prodBrand = marcaProducto.getText();

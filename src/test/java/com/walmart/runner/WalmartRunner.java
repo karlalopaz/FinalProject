@@ -5,10 +5,10 @@ import cucumber.api.junit.Cucumber;
 import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
-@CucumberOptions(features = {
-        "src/test/resources/features/addProductToCart.feature",
-
-},
+@CucumberOptions(features =
+        {
+        "src/test/resources/features/addProductToCart.feature"
+        },
         strict = false, plugin = {"pretty",
         "json:target/cucumber_json_reports/WalmartFinalProject.json",
         "html:target/WalmartFinalProject-html"},

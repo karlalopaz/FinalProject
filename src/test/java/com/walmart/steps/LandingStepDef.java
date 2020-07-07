@@ -3,7 +3,6 @@ package com.walmart.steps;
 import com.walmart.hooks.Hooks;
 import com.walmart.sites.WalmartSite;
 import cucumber.api.java.en.Given;
-import cucumber.api.java.en.When;
 
 public class LandingStepDef {
 

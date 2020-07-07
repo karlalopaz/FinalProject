@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-07-07T01:39:14.771Z",
+        "start_timestamp": "2020-07-07T04:16:16.915Z",
         "line": 3,
         "name": "Add products to the cart",
         "description": "",
@@ -34,7 +34,7 @@
               "status": "undefined"
             },
             "line": 6,
-            "name": "I select the product number 1",
+            "name": "I select the product",
             "match": {},
             "keyword": "And "
           },

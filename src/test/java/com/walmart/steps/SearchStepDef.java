@@ -2,6 +2,8 @@ package com.walmart.steps;
 
 import com.walmart.hooks.Hooks;
 import com.walmart.sites.WalmartSite;
+import com.walmart.utils.Producto;
+import cucumber.api.java.en.And;
 import cucumber.api.java.en.When;
 
 public class SearchStepDef {
@@ -17,6 +19,15 @@ public class SearchStepDef {
     public void iEnterAProductNameInTheSearchBar()
     {
         walmartSite.getSearch().searchForProduct();
+        walmartSite.getSearch().validateSearchProductPage();
+    }
+
+
+    @And("I select the product")
+    public void iSelectTheProduct()
+    {
+        walmartSite.getSearch().clickOnProduct(2);
+
     }
 
 }

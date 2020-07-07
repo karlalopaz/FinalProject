@@ -56,11 +56,4 @@ public class ProductPage extends BasePage
             System.out.println("El precio no concuerda");
     }
 
-    public void addToCart()
-    {
-        addToCart.click();
-        assertTrue(productAddedValidation.isDisplayed());
-    }
-
-
 }

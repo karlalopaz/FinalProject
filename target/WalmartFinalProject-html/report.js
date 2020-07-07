@@ -26,7 +26,7 @@ formatter.result({
   "status": "undefined"
 });
 formatter.step({
-  "name": "I select the product number 1",
+  "name": "I select the product",
   "keyword": "And "
 });
 formatter.match({});
