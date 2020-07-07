@@ -26,6 +26,8 @@ public class CartPage extends BasePage
     WebElement cartProducts;
     @FindBy(css="")
     WebElement cartTitle;
+    @FindBy(css="[data-automation-id='delete-button']")
+    WebElement deleteButton;
 
 
 
@@ -46,11 +48,12 @@ public class CartPage extends BasePage
     {
         wait.until(ExpectedConditions.visibilityOf(cartTitle));
         wait.until(ExpectedConditions.visibilityOf(cartProducts));
+        System.out.println("Product is displayed in the cart ");
     }
 
     public void deleteProduct()
     {
-
+        deleteButton.click();
     }
 
 
