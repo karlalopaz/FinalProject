@@ -3,7 +3,7 @@
     "line": 1,
     "elements": [
       {
-        "start_timestamp": "2020-07-07T04:16:16.915Z",
+        "start_timestamp": "2020-07-07T04:46:27.492Z",
         "line": 3,
         "name": "Add products to the cart",
         "description": "",
@@ -63,7 +63,7 @@
     "description": "",
     "id": "cart",
     "keyword": "Feature",
-    "uri": "file:src/test/resources/features/addProductToCart.feature",
+    "uri": "file:src/test/resources/features/addToCart.feature",
     "tags": []
   }
 ]

@@ -23,7 +23,6 @@ public class ProductStepDef {
 
     }
 
-
     @Then("I add the product into the cart")
     public void iAddTheProductIntoTheCart()
     {
