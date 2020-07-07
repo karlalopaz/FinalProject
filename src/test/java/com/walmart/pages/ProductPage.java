@@ -15,16 +15,15 @@ public class ProductPage extends BasePage
         PageFactory.initElements(wd, this);
     }
 
-    @FindBy(css="[class*=productName]")
+    @FindBy(css="[data-automation-id='product-details-header']")
     WebElement nombreProducto;
-    @FindBy(css="[class*=brandName] a")
+    @FindBy(css="[data-automation-id='product-brand-name'] a")
     WebElement marcaProducto;
-    @FindBy(css="[class*=offer-details] h4")
+    @FindBy(css="[data-automation-id='product-price']")
     WebElement precioProducto;
-    @FindBy(css="addToCartButton")
+    @FindBy(css="[data-automation-id='add-button']")
     WebElement addToCart;
-    @FindBy(css="added-to-cart")
-    WebElement productAddedValidation;
+
 
 
     public void validarProducto(Producto primerProd)
@@ -55,5 +54,10 @@ public class ProductPage extends BasePage
         else
             System.out.println("El precio no concuerda");
     }
+    public void addToCart()
+    {
+        addToCart.click();
+    }
+
 
 }

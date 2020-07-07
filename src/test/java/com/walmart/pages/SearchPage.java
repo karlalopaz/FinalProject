@@ -9,8 +9,6 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 
 import java.util.List;
 
-import static junit.framework.Assert.assertTrue;
-
 public class SearchPage extends BasePage
 {
     public SearchPage (WebDriver wd)
@@ -21,7 +19,7 @@ public class SearchPage extends BasePage
 
     @FindBy(css="[class*=searchBarContainer] input")
     WebElement searchBar;
-    @FindBy(css="search-icon")
+    @FindBy(css="button[data-automation-id='search-icon']")
     WebElement searchIcon;
     @FindBy(css="[class*='col']")
     List<WebElement> productsList;
@@ -34,12 +32,10 @@ public class SearchPage extends BasePage
 
     public void searchForProduct()
     {
-        //assertTrue(searchBar.isEnabled());
-        //assertTrue(searchIcon.isDisplayed());
         wait.until(ExpectedConditions.elementToBeClickable(searchBar));
-        searchBar.sendKeys("salsa");
-        //wait.until(ExpectedConditions.elementToBeClickable(searchIcon));
-        //searchIcon.click();
+        searchBar.sendKeys("juegos");
+        wait.until(ExpectedConditions.elementToBeClickable(searchIcon));
+        searchIcon.click();
     }
 
     public void validateSearchProductPage()
@@ -65,8 +61,7 @@ public class SearchPage extends BasePage
 
     public void clickOnProduct(int numProduct)
     {
-        List<WebElement> productos = productsList;
-        WebElement producto = productos.get(numProduct - 1);
+        WebElement producto = productsList.get(numProduct - 1);
         producto.click();
     }
 
