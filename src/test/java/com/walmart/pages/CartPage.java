@@ -22,10 +22,14 @@ public class CartPage extends BasePage
     WebElement checkMark;
     @FindBy(css="[data-automation-id='go-to-cart']")
     WebElement goToCart;
+    @FindBy(css="[data-automation-id='full-cart-header']")
+    WebElement cartProducts;
+    @FindBy(css="")
+    WebElement cartTitle;
 
 
 
-    public void validateProductInCart()
+    public void validateProductAddedInCart()
     {
         wait.until(ExpectedConditions.visibilityOf(checkMark));
         assertTrue(checkMark.isDisplayed());
@@ -33,8 +37,23 @@ public class CartPage extends BasePage
         System.out.println("Producto agregado al carrito con exito");
     }
 
-    /*public void goToCart()
+    public void goToCart()
     {
         goToCart.click();
-    }*/
+    }
+
+    public void validateProductsDisplayedInCart()
+    {
+        wait.until(ExpectedConditions.visibilityOf(cartTitle));
+        wait.until(ExpectedConditions.visibilityOf(cartProducts));
+    }
+
+    public void deleteProduct()
+    {
+
+    }
+
+
+
+
 }

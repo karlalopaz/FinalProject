@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
-import static junit.framework.Assert.*;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 
 public class ProductPage extends BasePage
 {
@@ -24,19 +24,23 @@ public class ProductPage extends BasePage
     @FindBy(css="[data-automation-id='add-button']")
     WebElement addToCart;
 
-
-
     public void validarProducto(Producto primerProd)
     {
+        wait.until(ExpectedConditions.visibilityOf(nombreProducto));
+        wait.until(ExpectedConditions.visibilityOf(marcaProducto));
+        wait.until(ExpectedConditions.visibilityOf(precioProducto));
         String prodName = nombreProducto.getText();
+        String[] name= prodName.split(" ");
+        String splitName = name[0];
         String prodBrand = marcaProducto.getText();
         String prodPrice = precioProducto.getText();
         prodPrice = prodPrice.replace("$", "");
+        prodPrice = prodPrice.replace(",", "");
         double pp = Double.parseDouble(prodPrice);
 
         if (primerProd.getName().equals(prodName))
         {
-            System.out.println("El nombre de los productos concuerda. " +prodName);
+            System.out.println("El nombre de los productos concuerda. " +splitName);
         }
         else
             System.out.println("El nombre del producto no concuerda....");
@@ -54,10 +58,9 @@ public class ProductPage extends BasePage
         else
             System.out.println("El precio no concuerda");
     }
+
     public void addToCart()
     {
         addToCart.click();
     }
-
-
 }

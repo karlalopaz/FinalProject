@@ -28,7 +28,7 @@ public class Hooks {
     public void setUp()
     {
         driver = new ChromeDriver();
-        driver.manage().timeouts().implicitlyWait(Properties.SHORT_WAIT, TimeUnit.SECONDS);
+        driver.manage().timeouts().implicitlyWait(Properties.MID_WAIT, TimeUnit.SECONDS);
         walmartSite = new WalmartSite(driver);
         driver.manage().window().maximize();
         ChromeOptions ops = new ChromeOptions();

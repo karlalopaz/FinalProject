@@ -18,8 +18,11 @@ public class SearchStepDef {
     @When("I enter a product name in the search bar")
     public void iEnterAProductNameInTheSearchBar()
     {
+
         walmartSite.getSearch().searchForProduct();
-        walmartSite.getSearch().validateSearchProductPage();
+        walmartSite.getSearch().validateSearchProductList();
+        Producto p = walmartSite.getSearch().capturaDatos();
+        walmartSite.saveProduct(p);
     }
 
 

@@ -37,8 +37,4 @@ public class Producto {
         this.brand = brand;
         this.price = price;
     }
-
-
-
-
 }
