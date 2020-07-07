@@ -34,12 +34,12 @@ public class CartStepDef {
     public void iSeeTheListOfProducts()
     {
         walmartSite.getCart().validateProductsDisplayedInCart();
-
     }
 
 
     @Then("I can delete the product")
-    public void iCanDeleteTheProduct() {
+    public void iCanDeleteTheProduct()
+    {
         walmartSite.getCart().deleteProduct();
     }
 }
